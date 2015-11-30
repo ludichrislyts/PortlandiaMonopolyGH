@@ -19,6 +19,28 @@ body {
     color: white;
 }
 
+.fade-screen {
+    height: 100vh;
+    width: 100vw;
+    background: black;
+    opacity: .6;
+    visibility: visible;
+    z-index: 1000;
+    text-align: center;
+    font-size: 10em;
+    padding-top: 20%;
+}
+
+    .fade-screen .isHidden {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .fade-screen p {
+        font-size: 7em;
+        margin-top: 40%;
+    }
+
 .statbar {
     padding: 1em;
     margin-left: 5em;
@@ -49,19 +71,21 @@ body {
 .board-container {
     margin: 50px;
     margin-left: 100px;
-    perspective: 1000px;
+    perspective: 800px;
 }
 
 .column-container {
     margin-top: -15em;
+    margin-left: 4em;
     display: flex;
     flex-direction: column;
     height: 78.0em;
     width: 78.0em;
     background-color: #ecfcf4;
     outline: .3em solid black;
-    transform: rotateX(35deg);
-    box-shadow: 7px 14px 14px 8px rgba(0,0,0,0.75);
+    transform: rotateX(40deg);
+    box-shadow: 10px 10px 10px 10px;
+    transition: all 1s linear;
 }
 
 .top-row {
@@ -208,8 +232,8 @@ body {
     transform: rotate(270deg);
     position: absolute;
     width: 5.6em;
-    margin-left: -15%;
-    bottom: 40%;
+    margin-left: -8%;
+    bottom: 30%;
 }
 
 .right-cost {
@@ -227,7 +251,7 @@ body {
 
 .square31 .right-name {
     width: 5.6em;
-    margin-left: -15%;
+    margin-left: -9%;
     bottom: 30%;
 }
 
@@ -242,9 +266,9 @@ body {
 .left-cost {
     transform: rotate(90deg);
     position: absolute;
-    width: 5.6em;
+    width: 5.8em;
     margin-left: -8%;
-    bottom: 40%;
+    bottom: 38%;
 }
 
 #rail {
@@ -445,8 +469,8 @@ body {
     position: absolute;
     text-align: center;
     transform: rotate(270deg);
-    bottom: 30%;
-    margin-left: -10%;
+    bottom: 15%;
+    margin-left: -7%;
     width: 5.8em;
 }
 
@@ -457,7 +481,7 @@ body {
     height: 5.5em;
     width: 5.5em;
     transform: rotate(270deg);
-    margin-left: 25%;
+    margin-left: 32%;
     bottom: 0;
 }
 
@@ -705,11 +729,24 @@ body {
     text-align: center;
     margin-top: 1em;
 }
-
-/* Player display pieces */
-
-.player1 {
+/*initial display of pieces*/
+.player-pieces {
+    display: inline-flex;
+    bottom: 0;
+    height: 5em;
+    width: 70%;
     position: absolute;
+    margin-left: -6%;
+    margin-bottom: .6em;
+}
+
+    .player-pieces div.player1, div.player2, div.player3, div.player4 {
+        position: relative;
+    }
+/* Player display pieces */
+/*player1 is the dog*/
+.player1 {
+    position: relative;
     background-image: url(../img/dog.png);
     background-size: cover;
     z-index: 2;
@@ -719,11 +756,17 @@ body {
     left: 0;
 }
 
-    .player1:parent {
-    }
-
+.player1statbar {
+    background-image: url(../img/dog.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 6.25em;
+    width: 6.25em;
+    float: right;
+}
+/*player2 is the hat*/
 .player2 {
-    position: absolute;
+    position: relative;
     background-image: url(../img/hat.png);
     background-size: cover;
     z-index: 2;
@@ -733,8 +776,17 @@ body {
     right: 0;
 }
 
+.player2statbar {
+    background-image: url(../img/hat.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 5em;
+    width: 6.25em;
+    float: right;
+}
+/*player3 is the iron*/
 .player3 {
-    position: absolute;
+    position: relative;
     background-image: url(../img/iron.png);
     background-size: cover;
     z-index: 2;
@@ -744,8 +796,17 @@ body {
     left: 0;
 }
 
+.player3statbar {
+    background-image: url(../img/iron.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 5em;
+    width: 6.25em;
+    float: right;
+}
+/*player4 is the elephant*/
 .player4 {
-    position: absolute;
+    position: relative;
     background-image: url(../img/elephant.png);
     background-size: cover;
     z-index: 2;
@@ -755,15 +816,84 @@ body {
     right: 0;
 }
 
+.player4statbar {
+    background-image: url(../img/elephant.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 6.25em;
+    width: 6.25em;
+    float: right;
+}
+
+.rotate {
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+    max-width: 22em;
+    height: 5em;
+    margin-left: 3em;
+    margin-right: 5em;
+    margin-top: 1em;
+    padding: 3em 0 0 0;
+
+}
+
+#left-control {
+    width: 100%;
+    margin-top: 1em;
+}
+/*@media all and (min-width:1500px) {*/
+#view-button {
+    width: 100%;
+}
+/*}*/
+/*@media all and (min-width:1200px) {
+    #view-button {
+        width: 77%;
+    }
+}*/
+
+#right-control {
+    float: right;
+    width: 49%;
+    height: 100%;
+    margin-top: 4.5em;
+    /*maybe display this when the rotate function isn't wacky*/
+    display: none;
+}
+
+    #right-control button {
+        color: #00a5ff;
+        background-color: aliceblue;
+        border-color: #80ccff;
+    }
+
 /*
 player action section (playerTurn
 */
 .player-control {
+    background-color: aliceblue;
+    background-size: cover;
     min-height: 30em;
-    max-width: 20em;
-    border: 3px solid darkslategray;
+    max-width: 22em;
+    border: 7px outset #80CCFF;
     margin-left: 3em;
     margin-right: 5em;
-    margin-top: 4em;
+    margin-top: 1.5em;
     padding: 2em;
+}
+
+.showPosition {
+    outline: 2px solid;
+    z-index: 99;
+}
+/*code to alter message output in actionMessage directive*/
+.messageDirective h5{
+    text-align:right;
+}
+.messageDirective h5.moneyTotals{
+    visibility: hidden;
+}
+.showMoneyMessage{
+    visibility: visible;
 }

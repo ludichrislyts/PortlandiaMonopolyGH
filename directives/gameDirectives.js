@@ -8,17 +8,22 @@ portlandiaMonopoly.directive('showCards', function () {
 });
 portlandiaMonopoly.directive('readCard', function () {
     return {
-        template: ('<div><h3>{{cardToRead.text}}</h3><h4 style="color:red">{{cardToRead.subtext}}</h4>')
+        template: ('<div><h3>{{cardToRead.text}}</h3><h4 style="color:darkgray">{{cardToRead.subtext}}</h4>')
     };
 });
 
 portlandiaMonopoly.directive('rollResults', function () {
     return {
-        template: ('<div><h4>{{ currentPlayer.piece.pieceName }}, you rolled a {{ rollResult.die1 }} and a {{ rollResult.die2 }}</h4><span ng-show="rollResult.doubles"><h4> with doubles!')
+        template: ('<div><h4>{{ currentPlayer.piece.pieceName }} {{ currentPlayer.pieceObject.name }}, you rolled a {{ rollResult.die1 }} and a {{ rollResult.die2 }}</h4><span ng-show="rollResult.doubles"><h4> with doubles!')
     };
 })
 portlandiaMonopoly.directive('actionMessage', function () {
     return {
-        template: ('<div><h3>{{ message.text }}</h3><br /><h4>{{message.subText}}</h4></div>')
+        template: ('<div class="messageDirective"><h3>{{ message.text }}</h3><br />' +
+                    '<h4>{{message.subText}}</h4></br>' +
+                    '<h5 class="moneyTotals">Previous Funds: ${{ message.originalAmount }}</h5>' +
+                    '<h5 class="moneyTotals" id="change">Change: {{ message.change }}</h5>' +
+                    '<h5 class="moneyTotals">Current Funds: ${{ message.newTotal }}</h5>' +
+                    '</div>')
     };
 })

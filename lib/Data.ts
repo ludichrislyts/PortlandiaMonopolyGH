@@ -3,7 +3,7 @@
 
     export var deeds = [
         //Go
-        new Deed("G0", 0, 0, 0, [], 0, ""), //company, sport, train),
+        new Deed("G0", 200, 0, 0, [], 0, ""), //company, sport, train),
 
         //Mediterranean Avenue
         new Deed("JAMA SOFTWARE", 60, 30, 50, [2, 10, 30, 90, 160], 1, "company"),
@@ -15,7 +15,7 @@
         new Deed("ALTSOURCE", 60, 30, 50, [4, 20, 60, 180, 320, 450], 1, "company"),
 
         //Income Tax
-        new Deed("PORTLAND ART TAX", 0, 0, 0, [], 0, ""),
+        new Deed("PORTLAND ART TAX", -200, 0, 0, [], 0, ""),
 
         //Reading Railroad
         new Deed("MAX", 200, 100, 0, [25, 50, 100, 200], 2, "train"),
@@ -57,7 +57,7 @@
         new Deed("Cc17", 0, 0, 0, [], 0, ""),
 
         //Tennessee Avenue
-        new Deed("ARUBA NETWORKS", 180, 90, 100, [14, 70, 200, 550, 750, 950], 6, "company"),
+        new Deed("OPEN SESAME", 180, 90, 100, [14, 70, 200, 550, 750, 950], 6, "company"),
 
         //New York
         new Deed("RENTRAK", 200, 100, 100, [16, 80, 220, 600, 800, 1000], 6, "company"),
@@ -117,7 +117,7 @@
         new Deed("NEW RELIC", 350, 175, 200, [35, 175, 500, 1100, 1300, 1500], 10, "company"),
 
         //Luxury Tax
-        new Deed("VOODOO DOUGHNUTS", 0, 0, 0, [], 0, ""),
+        new Deed("VOODOO DOUGHNUTS", -175, 0, 0, [], 0, ""),
 
         //Boardwalk
         new Deed("FREE GEEK", 400, 200, 200, [50, 200, 600, 1400, 1700, 2000], 10, "company")
@@ -141,7 +141,7 @@
         new Card("PLAN AN EVENT AT OAKS AMUSEMENT PARK", "COLLECT $10 FROM EACH PLAYER", "card", [10]),
         new Card("VISIT PORTLAND ART MUSEUM", "PAY $50", "money", [50]),
         new Card("HOST A TOUR THRU WASHINGTON PARK", "COLLECT $200", "money", [200]),
-        //new Card("WIN DANCE CONTEST AT THE CRYSTAL BALLROOM", "COLLECT $50 FROM EACH PLAYER", "card", [50]),
+        new Card("WIN DANCE CONTEST AT THE CRYSTAL BALLROOM", "COLLECT $50 FROM EACH PLAYER", "card", [50]),
         //new Card("PORTLAND'S SCHOOL BOND PASSES!", "PAY $40 PER HOUSE, $115 PER HOTEL", "assess", [-40, -115]),
     ]
 
@@ -163,10 +163,10 @@
         new Card("SELL LOCALLY GROWN VEGETABLES AT THE PORTLAND FARMERS MARKET", "COLLECT $150", "money", [150]),
         new Card("WIN SECOND PLACE IN PORTLAND'S BEARD COMPETITION", "COLLECT $100", "money", [100]),
         new Card("EXPERIENCE THE HAWTHORNE DISTRICT", "PAY $15 FOR COFFEE", "money", [-15]),
+        new Card("HOST AN EVENT AT POWELL'S CITY OF BOOKS", "PAY EACH PLAYER $50", "card", [-50]),
         //new Card("TRAFFIC JAM!", "ADVANCE TOKEN TO THE NEAREST MASS TRANSIT AND PAY OWNER TWICE THE RENTAL TO WHICH HE/SHE IS OTHERWISE ENTITLED. IF MASS TRANSIT IS UNOWNED, YOU MAY BUY IT FROM THE PORTLAND BUREAU OF PLANNING AND SUSTAINABILITY", "go", [5, 15, 25, 35]),
         //new Card("TRAFFIC JAM!", "ADVANCE TOKEN TO THE NEAREST MASS TRANSIT AND PAY OWNER TWICE THE RENTAL TO WHICH HE/SHE IS OTHERWISE ENTITLED. IF MASS TRANSIT IS UNOWNED, YOU MAY BUY IT FROM THE PORTLAND BUREAU OF PLANNING AND SUSTAINABILITY", "go", [5, 15, 25, 35]),
         //new Card("PAY PORTLAND'S LEAF CLEANING FEE", "FOR EACH HOUSE PAY $25 - FOR EACH HOTEL $100", "assess", [-25, -100]),
-        //new Card("HOST AN EVENT AT POWELL'S CITY OF BOOKS", "PAY EACH PLAYER $50", "card", [-50]),
         //new Card("MARCH MADNESS!", "ADVANCE TOKEN TO THE NEAREAST SPORTS TEAM. IF UNOWNED, YOU MAY BUY IT FROM THE PORTLAND BUREAU OF PLANNING AND SUSTAINABILITY. IF OWNED, THROW DICE AND PAY OWNER 10 TIMES THE AMOUNT THROWN.", "go", [12, 28]),
 
     ]
@@ -178,14 +178,23 @@
         new GamePiece(4, "Orange"),
         new GamePiece(5, "Black")
     ]
+    export var GameObjects = [
+        new GameObject("player1", "Dog"),
+        new GameObject("player2", "Hat"),
+        new GameObject("player3", "Iron"),
+        new GameObject("player4", "Elephant")
+    ]
 
     export var remainingGamePieces: Array<GamePiece> = [] //Obsolete!!!!! Try to trash this one day!!!
-
+    export var remainingObjects: Array<GameObject> = []
     export var players: Array<Player> = []
 
     //TODO: Move...maybe
     for (var i = 0; i < Data.GamePieces.length; i++) {
         Data.remainingGamePieces.push(Data.GamePieces[i]);
+    }
+    for (var i = 0; i < Data.GameObjects.length; i++) {
+        Data.remainingObjects.push(Data.GameObjects[i]);
     }
 }
 
