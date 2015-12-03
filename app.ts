@@ -14,7 +14,7 @@ portlandiaMonopoly.config(function ($stateProvider, $urlRouterProvider) {
             'setup': {
                 templateUrl: "partials/selectPlayers.html",
                 controller: "PlayerSelectCtrl"
-            }
+            },
         }
     });
 
@@ -22,7 +22,7 @@ portlandiaMonopoly.config(function ($stateProvider, $urlRouterProvider) {
         url: "/click",
         views: {
             'startButton': {
-                template: '<div class="fade-screen"><a ui-sref="play" style="text-decoration:none; width: 100%; height:100%">Click to Start!</a></div>',
+                templateUrl: 'partials/startPage.html',
                 controller: "PlayerTurnCtrl"
             },
         }

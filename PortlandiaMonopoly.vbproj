@@ -121,6 +121,7 @@
     <Content Include="gameboardtest.html" />
     <Content Include="img\arrow.jpg" />
     <Content Include="img\arttax.png" />
+    <Content Include="img\bird.png" />
     <Content Include="img\chance.png" />
     <Content Include="img\communitychest.gif" />
     <Content Include="img\dog.png" />
@@ -129,7 +130,9 @@
     <Content Include="img\elephant.png" />
     <Content Include="img\free_parking.jpg" />
     <Content Include="img\gotojail.gif" />
+    <Content Include="img\playPortlandia.png" />
     <Content Include="img\iron.png" />
+    <Content Include="img\MonopolyLogo.png" />
     <Content Include="img\psm.jpg" />
     <Content Include="img\railroad.gif" />
     <Content Include="img\rose.jpg" />
@@ -148,6 +151,7 @@
     <Content Include="obj\Debug\PortlandiaMonopoly.xml" />
     <Content Include="obj\Debug\TempPE\My Project.Resources.Designer.vb.dll" />
     <Content Include="partials\gameboard.html" />
+    <Content Include="partials\startPage.html" />
     <Content Include="partials\playerStats.html" />
     <Content Include="partials\playerTurn.html" />
     <Content Include="partials\selectPlayers.html" />

@@ -141,42 +141,61 @@ portlandiaMonopoly.controller('PlayerTurnCtrl', function PlayerTurnCtrl($scope, 
     }
 
     $scope.advanceView = function () {
-        if ($(".column-container").css("transform")[9] === "1") {
-            //set view to squares 10 - 20
-            $(".column-container").css("transform", "rotateX(40deg) rotate(-90deg)");
-            //$(".column-container").css("transform", "matrix3d(0,-.766044,-.642788,0,1,0,0,0,0,-.642788,.766044,0,0,0,0,1)");
-            $(".column-container").css("box-shadow", "-10px 10px 14px 8px rgba(0,0,0,0.7)");
+        var $board = $(".column-container");
+        var deg = $(".column-container").css("transform");
+        console.log(deg);
+        if (deg[9] === "1") { // matrix3d(1, 0, .... IE, Chrome, Firefox board is at 0 deg rotation
+            //set view to squares 10 - 20, rotate to -90 deg
+            $board.css("transform", "rotateX(40deg) rotate(-90deg)");
+            $board.css("box-shadow", "-10px 10px 14px 8px rgba(0,0,0,0.7)");
             // alter player piece view to look more upright
             for (var i = 0; i < Data.players.length; i++) {
                 $(".player" + Data.players[i].id).css({ "transform": "rotateZ(90deg)", "transition": "all 1s linear" });
             }
-        } else if ($(".column-container").css("transform")[9] === "-") {
-            // set view to squares 30-40
-            $(".column-container").css("transform", "rotateX(40deg) rotate(-270deg)");
-            //$(".column-container").css("transform", "matrix3d(0,.766044,.642788,0,-1,0,0,0,0,-.642788,.766044,0,0,0,0,1)");
-            $(".column-container").css("box-shadow", "10px -10px 14px 8px rgba(0,0,0,0.7)");
-            for (var i = 0; i < Data.players.length; i++) {
-                $(".player" + Data.players[i].id).css({ "transform": "rotateZ(-90deg)", "transition": "all 1s linear" });
-            }
-        } else if ($(".column-container").css("transform")[9] === "0") {
-            if ($(".column-container").css("transform")[12] === "-") {
-                //set view to squares 20-30
-                //$(".column-container").css("transform", "matrix3d(-1,0,0,0,0,-.766044,-.642788,0,0,-.642788,.766044,0,0,0,0,1)");
-                $(".column-container").css("transform", "rotateX(40deg) rotate(-180deg)");
-                $(".column-container").css("box-shadow", "-10px -10px 14px 8px rgba(0,0,0,0.7)");
+        } else if (deg[9] === "-") {
+            if (deg[11] === ",") { // matrix3d(-1, 0, ... IE, Firefox, Chrome board is at +-180 rotation
+                // set view to squares 30-40, rotate to -270 deg
+                $board.css("transform", "rotateX(40deg) rotate(-270deg)");
+                $board.css("box-shadow", "10px -10px 14px 8px rgba(0,0,0,0.7)");
                 for (var i = 0; i < Data.players.length; i++) {
-                    $(".player" + Data.players[i].id).css({ "transform": "rotateZ(180deg)", "transition": "all 1s linear" });
+                    $(".player" + Data.players[i].id).css({ "transform": "rotateZ(-90deg)", "transition": "all 1s linear" });
                 }
-            } else {
-                // set view to start
-                // need next line to reset degrees otherwise next -90 will spin out of control
-                $(".column-container").css("transform", "matrix3d(1,0,0,0,0,.766044,.642788,0,0,-.642788,.766044,0,0,0,0,1)");
-                $(".column-container").css("box-shadow", "10px 10px 14px 8px rgba(0,0,0,0.7)");
+            } else { // matrix3d(-1.83697... Chrome. Board is at -270 rotation,
+                //set view to squares 0-10, rotate to 0 deg rotation
+                $board.css("transform", "rotateX(40deg) rotate(-360deg)");
+                // reset degrees
+                $board.css("transform", "matrix3d(1, 0, 0, 0, 0, 0.766044, 0.642788, 0, 0, -0.642788, 0.766044, 0, 0, 0, 0, 1)")
+                $board.css("box-shadow", "10px 10px 14px 8px rgba(0,0,0,0.7)");
                 for (var i = 0; i < Data.players.length; i++) {
                     $(".player" + Data.players[i].id).css({ "transform": "rotateZ(0deg)", "transition": "all 1s linear" });
                 }
             }
+        } else if(deg[9] === "6" || deg[12] === "-"){ // matrix3d(6.12323...Chrome / matrix3d(0, -0.766044 IE, Firefox
+            //set view to squares 20-30,  board is at -90 rotation, rotate to +-180 deg
+            $board.css("transform", "rotateX(40deg) rotate(-180deg)");
+            $board.css("box-shadow", "-10px -10px 14px 8px rgba(0,0,0,0.7)");
+            for (var i = 0; i < Data.players.length; i++) {
+                $(".player" + Data.players[i].id).css({ "transform": "rotateZ(180deg)", "transition": "all 1s linear" });
+            }
+        } else { // matrix3d(0, 0.76044... Firefox, IE. Board is at -270 deg, rotate to 0 deg.
+            $board.css("transform", "rotateX(40deg) rotate(-360deg)");
+            // reset degrees
+            $board.css("transform", "matrix3d(1, 0, 0, 0, 0, 0.766044, 0.642788, 0, 0, -0.642788, 0.766044, 0, 0, 0, 0, 1)")
+            $board.css("box-shadow", "10px 10px 14px 8px rgba(0,0,0,0.7)");
+            for (var i = 0; i < Data.players.length; i++) {
+                $(".player" + Data.players[i].id).css({ "transform": "rotateZ(0deg)", "transition": "all 1s linear" });
+            }
         }
+        //else {
+        //            // set view to start
+        //            // need next line to reset degrees otherwise next -90 will spin out of control
+        //            $(".column-container").css("transform", "matrix3d(1,0,0,0,0,.766044,.642788,0,0,-.642788,.766044,0,0,0,0,1)");
+        //            $(".column-container").css("box-shadow", "10px 10px 14px 8px rgba(0,0,0,0.7)");
+        //            for (var i = 0; i < Data.players.length; i++) {
+        //                $(".player" + Data.players[i].id).css({ "transform": "rotateZ(0deg)", "transition": "all 1s linear" });
+        //            }
+
+        //    }
     }
     /*
     // just using advanceView for now...incoporating both made for some weird transitsions.
@@ -833,4 +852,21 @@ portlandiaMonopoly.controller('PlayerTurnCtrl', function PlayerTurnCtrl($scope, 
             rotateToPlayer($scope.currentPlayer.position, 0);
         }
     };// end endTurn()
+    String.prototype.noExponents = function () {
+        var data = String(this).split(/[eE]/);
+        if (data.length == 1) return data[0];
+
+        var z = '', sign = this < 0 ? '-' : '',
+        str = data[0].replace('.', ''),
+        mag = Number(data[1]) + 1;
+
+        if (mag < 0) {
+            z = sign + '0.';
+            while (mag++) z += '0';
+            return z + str.replace(/^\-/, '');
+        }
+        mag -= str.length;
+        while (mag--) z += '0';
+        return str + z;
+    }
 });
