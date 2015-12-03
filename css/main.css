@@ -252,6 +252,7 @@ body {
 
     .right-name#jive {
         bottom: 30%;
+        padding: 1px;
     }
 
 .right-cost {
