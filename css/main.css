@@ -151,6 +151,32 @@ body {
     position: relative;
     flex: 9;
 }
+.center-image {
+    flex: 1;
+    transform: rotate(45deg);
+    background-image: url(../img/MonopolyLogo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    height: 25em;
+    width: 52em;
+    margin-left: -7em;
+    margin-top: 22em;
+}
+
+.center-image-portlandia {
+    flex: 1;
+    transform: rotate(45deg);
+    background-image: url(../img/PortlandiaBoard.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    height: 25em;
+    width: 27em;
+    margin-left: 22em;
+    margin-top: 20em;
+    z-index: 999;
+}
 
 .middle-row-right {
     position: relative;

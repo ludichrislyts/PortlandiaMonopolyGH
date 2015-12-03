@@ -4,7 +4,7 @@
 factory.addPlayer is called upon submit. 'startGame' must also be toggled to true if user selects start game option-->
 <div class="container header-type" style="font-size: 2em">
     <form ng-submit="showStartButton = factory.addPlayer(); update()" class="form-inline" role="form">
-        <div class="row" ng-hide="showStartButton || startGame" class="form-group">
+        <div class="row form-group" ng-hide="showStartButton || startGame">
             <label for="player">Enter name here:</label>
             <input class="form-control" id="player" ng-model="factory.playerName" placeholder="Enter Name" required>
             <br />
