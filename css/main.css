@@ -78,6 +78,8 @@ body {
     .statbar .money {
         padding: .5em;
         margin-left: .5em;
+        border: 2px solid;
+        border-radius: 11px;
     }
 /*.p1{
 }*/
