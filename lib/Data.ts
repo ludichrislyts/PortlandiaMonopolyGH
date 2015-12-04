@@ -172,12 +172,12 @@
     ]
 
     export var GamePieces = [
-        new GamePiece(1, "Blue", #547098, #325876),
-        new GamePiece(2, "Red", #6D0F03, #4b8d81),
-        new GamePiece(3, "Green", #5F6C4E, #3d4a2c),
-        new GamePiece(4, "Orange", #FB7116, #d92004),
-        new GamePiece(5, "Black", #080806, #000),
-        new GamePiece(5, "Yellow", #FAB900, #d89700)
+        new GamePiece(1, "Blue", "#547098", "#325876"),
+        new GamePiece(2, "Red", "#6D0F03", "#4b8d81"),
+        new GamePiece(3, "Green", "#5F6C4E", "#3d4a2c"),
+        new GamePiece(4, "Orange", "#FB7116", "#d92004"),
+        new GamePiece(5, "Black", "#080806", "#000"),
+        new GamePiece(5, "Yellow", "#FAB900", "#d89700")
     ]
     export var GameObjects = [
         new GameObject("player1", "Dog"),
