@@ -162,13 +162,14 @@ body {
 }
 
 .column-container {
+    color: #000;
     margin-top: -15em;
     margin-left: 4em;
     display: flex;
     flex-direction: column;
     height: 78.0em;
     width: 78.0em;
-    background-color: #ddd;
+    background-color: #eda;
     outline: .3em solid black;
     transform: rotateX(40deg);
     box-shadow: 10px 10px 10px 10px #000;
