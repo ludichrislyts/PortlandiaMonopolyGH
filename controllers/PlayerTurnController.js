@@ -20,12 +20,8 @@ portlandiaMonopoly.controller('PlayerTurnCtrl', function PlayerTurnCtrl($scope, 
     var index = 0;
     var card_type = null;
     var board = [];
-    board.currentPos = 0;
-
-    // getting the color for the player tabs (for some reason the
-    // colors don't display in IE with data in the {{ }}. Lame
-    //var colors = [];
-    $("#background").toggleClass('background');
+    board.currentPos = 0;   
+    //$("#background").toggleClass('background');// need a better background for this
     $scope.deeds = Data.deeds;
     // flag toggle to display game messages, resets to false in endTurn()
     $scope.buyChoice = false;

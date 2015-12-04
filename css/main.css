@@ -120,11 +120,11 @@ body {
     margin-left: 100px;
     perspective: 900px;
 }
-
-.background {
+/*need a better image*/
+/*.background {
     background-image: url('../img/table.jpg');
     background-size: auto;
-}
+}*/
 
 .header-type {
     font-family: "Sigmar One", "Lucida Sans", sans-serif;
@@ -986,7 +986,7 @@ player action section (playerTurn
     background-size: cover;
     min-height: 30em;
     max-width: 22em;
-    border: 7px outset #4d2d2d;
+    border: 7px outset #444;
     margin-left: 3em;
     margin-right: 5em;
     margin-top: .5em;
