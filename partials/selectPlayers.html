@@ -52,7 +52,7 @@ factory.addPlayer is called upon submit. 'startGame' must also be toggled to tru
                 </div>-->
     </div>
     <div class="row" ng-show="startGameMessage" ng-click="startGameMessage = false">
-        <a ui-sref="click_to_start" class="button btn btn-primary btn-large" id="click-to-continue">{{ playerToStart.name }} has been selected to go first! Click to continue.</a>
+        <a ui-sref="play" class="button btn btn-primary btn-large" id="click-to-continue">{{ playerToStart.name }} has been selected to go first! Click to continue.</a>
         <p style="width: 350px">Note: This is a single page AngularJS app. If you navigate back from the game page, you will have to start the game over.</p>
     </div>
 </div>

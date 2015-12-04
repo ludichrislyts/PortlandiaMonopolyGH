@@ -130,12 +130,15 @@
     <Content Include="img\elephant.png" />
     <Content Include="img\free_parking.jpg" />
     <Content Include="img\gotojail.gif" />
+    <Content Include="img\notepad_page.png" />
     <Content Include="img\playPortlandia.png" />
     <Content Include="img\iron.png" />
     <Content Include="img\MonopolyLogo.png" />
+    <Content Include="img\PortlandiaBoard.png" />
     <Content Include="img\psm.jpg" />
     <Content Include="img\railroad.gif" />
     <Content Include="img\rose.jpg" />
+    <Content Include="img\table.jpg" />
     <Content Include="img\tb.png" />
     <Content Include="img\thimble.png" />
     <Content Include="img\timbers.png" />

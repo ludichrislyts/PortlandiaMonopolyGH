@@ -11,19 +11,18 @@ portlandiaMonopoly.config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider.state('home', {
         url: "",
         views: {
-            'setup': {
-                templateUrl: "partials/selectPlayers.html",
-                controller: "PlayerSelectCtrl"
+            'startButton': {
+                templateUrl: 'partials/startPage.html',
             },
         }
     });
 
     $stateProvider.state('click_to_start', {
-        url: "/click",
+        url: "/setup",
         views: {
-            'startButton': {
-                templateUrl: 'partials/startPage.html',
-                controller: "PlayerTurnCtrl"
+            'setup': {
+                templateUrl: "partials/selectPlayers.html",
+                controller: "PlayerSelectCtrl"
             },
         }
     });
