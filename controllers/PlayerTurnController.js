@@ -303,7 +303,7 @@ portlandiaMonopoly.controller('PlayerTurnCtrl', function PlayerTurnCtrl($scope, 
                 transactions.exchangeMoney(player, deed.price, 1);
                 $scope.message.newTotal = player.money;
                 $scope.message.change = "-$" + deed.price;
-                $("#change").css("color", "red");
+                $("#change").css("color", "C20319");
                 $(".messageDirective h5.moneyTotals").css("visibility", "visible");
                 $scope.showMessage = true;
                 $scope.show_end_turn_button = true;
@@ -344,7 +344,7 @@ portlandiaMonopoly.controller('PlayerTurnCtrl', function PlayerTurnCtrl($scope, 
                 transactions.exchangeMoney(player, deed.price, 1);
                 $scope.message.newTotal = player.money;
                 $scope.message.change = "-$" + deed.price;
-                $("#change").css("color", "red");
+                $("#change").css("color", "C20319");
                 $(".messageDirective h5.moneyTotals").css("visibility", "visible");
                 $scope.showMessage = true;
                 $scope.show_end_turn_button = true;
@@ -406,7 +406,7 @@ portlandiaMonopoly.controller('PlayerTurnCtrl', function PlayerTurnCtrl($scope, 
             transactions.payBetweenPlayers(player, rentToPay, deed.owned);
             $scope.message.newTotal = player.money;
             $scope.showMessage = true;
-            $("#change").css("color", "red");
+            $("#change").css("color", "C20319");
             $(".messageDirective h5.moneyTotals").css("visibility", "visible");
             $scope.show_end_turn_button = true;
         }
@@ -461,7 +461,7 @@ portlandiaMonopoly.controller('PlayerTurnCtrl', function PlayerTurnCtrl($scope, 
             transactions.payBetweenPlayers(player, card.value[0], 0);
             $scope.message.newTotal = player.money;
             if (card.value[0] < 0) {
-                $("#change").css("color", "red");
+                $("#change").css("color", "C20319");
                 $scope.message.change = "-$" + (card.value[0] * -1);
             } else {
                 $scope.message.change = "$" + card.value[0];
@@ -476,7 +476,7 @@ portlandiaMonopoly.controller('PlayerTurnCtrl', function PlayerTurnCtrl($scope, 
             $scope.message.newTotal = player.money;
             $scope.showMessage = true;
             if (card.value[0] < 0) {
-                $("#change").css("color", "red");
+                $("#change").css("color", "C20319");
                 $scope.message.change = "-$" + (card.value[0] * -1);
             } else {
                 $scope.message.change = "$" + card.value[0];
@@ -549,7 +549,7 @@ portlandiaMonopoly.controller('PlayerTurnCtrl', function PlayerTurnCtrl($scope, 
 
                 $scope.message.change = "-$" + deed.price;
                 $scope.message.newTotal = player.money;
-                $("#change").css("color", "red");
+                $("#change").css("color", "C20319");
                 $(".messageDirective h5.moneyTotals").css("visibility", "visible");
                 if (checkForMonopoly(deeds.indexOf(deed))) {
                     $scope.message.text += ". You have a Portlandia Monopoly!";
