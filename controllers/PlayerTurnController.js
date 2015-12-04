@@ -157,106 +157,24 @@ portlandiaMonopoly.controller('PlayerTurnCtrl', function PlayerTurnCtrl($scope, 
             rotateZero(pos);
         }
     }
+    
+    reverseView = function (pos) {
+        if (pos.currentPos === 0) { // matrix3d(1, 0, .... IE, Chrome, Firefox board is at 0 deg rotation
+            rotateNeg270(pos);
+        } else if (pos.currentPos === 1) {
+            rotateZero(pos);
+        } else if (pos.currentPos === 2) {
+            rotateNeg90(pos);
+        } else {
+            rotate180(pos);
+        }
+    }
     $scope.advanceView = function () {
         advanceView(board);
     }
-    //$scope.advanceView = function () {
-    //    var $board = $(".column-container");
-    //    var deg = $(".column-container").css("transform");
-    //    console.log(deg);
-    //    if (deg[9] === "1") { // matrix3d(1, 0, .... IE, Chrome, Firefox board is at 0 deg rotation
-    //        //set view to squares 10 - 20, rotate to -90 deg
-    //        $board.css("transform", "rotateX(40deg) rotate(-90deg)");
-    //        $board.css("box-shadow", "-10px 10px 14px 8px rgba(0,0,0,0.7)");
-    //        // alter player piece view to look more upright
-    //        for (var i = 0; i < Data.players.length; i++) {
-    //            $(".player" + Data.players[i].id).css({ "transform": "rotateZ(90deg)", "transition": "all 1s linear" });
-    //        }
-    //    } else if (deg[9] === "-") {
-    //        if (deg[11] === ",") { // matrix3d(-1, 0, ... IE, Firefox, Chrome board is at +-180 rotation
-    //            // set view to squares 30-40, rotate to -270 deg
-    //            $board.css("transform", "rotateX(40deg) rotate(-270deg)");
-    //            $board.css("box-shadow", "10px -10px 14px 8px rgba(0,0,0,0.7)");
-    //            for (var i = 0; i < Data.players.length; i++) {
-    //                $(".player" + Data.players[i].id).css({ "transform": "rotateZ(-90deg)", "transition": "all 1s linear" });
-    //            }
-    //        } else { // matrix3d(-1.83697... Chrome. Board is at -270 rotation,
-    //            //set view to squares 0-10, rotate to 0 deg rotation
-    //            $board.css("transform", "rotateX(40deg) rotate(-360deg)");
-    //            // reset degrees
-    //            $board.css("transform", "matrix3d(1, 0, 0, 0, 0, 0.766044, 0.642788, 0, 0, -0.642788, 0.766044, 0, 0, 0, 0, 1)")
-    //            $board.css("box-shadow", "10px 10px 14px 8px rgba(0,0,0,0.7)");
-    //            for (var i = 0; i < Data.players.length; i++) {
-    //                $(".player" + Data.players[i].id).css({ "transform": "rotateZ(0deg)", "transition": "all 1s linear" });
-    //            }
-    //        }
-    //    } else if(deg[9] === "6" || deg[12] === "-"){ // matrix3d(6.12323...Chrome / matrix3d(0, -0.766044 IE, Firefox
-    //        //set view to squares 20-30,  board is at -90 rotation, rotate to +-180 deg
-    //        $board.css("transform", "rotateX(40deg) rotate(-180deg)");
-    //        $board.css("box-shadow", "-10px -10px 14px 8px rgba(0,0,0,0.7)");
-    //        for (var i = 0; i < Data.players.length; i++) {
-    //            $(".player" + Data.players[i].id).css({ "transform": "rotateZ(180deg)", "transition": "all 1s linear" });
-    //        }
-    //    } else { // matrix3d(0, 0.76044... Firefox, IE. Board is at -270 deg, rotate to 0 deg.
-    //        $board.css("transform", "rotateX(40deg) rotate(-360deg)");
-    //        // reset degrees
-    //        $board.css("transform", "matrix3d(1, 0, 0, 0, 0, 0.766044, 0.642788, 0, 0, -0.642788, 0.766044, 0, 0, 0, 0, 1)")
-    //        $board.css("box-shadow", "10px 10px 14px 8px rgba(0,0,0,0.7)");
-    //        for (var i = 0; i < Data.players.length; i++) {
-    //            $(".player" + Data.players[i].id).css({ "transform": "rotateZ(0deg)", "transition": "all 1s linear" });
-    //        }
-    //    }
-    //    //else {
-    //    //            // set view to start
-    //    //            // need next line to reset degrees otherwise next -90 will spin out of control
-    //    //            $(".column-container").css("transform", "matrix3d(1,0,0,0,0,.766044,.642788,0,0,-.642788,.766044,0,0,0,0,1)");
-    //    //            $(".column-container").css("box-shadow", "10px 10px 14px 8px rgba(0,0,0,0.7)");
-    //    //            for (var i = 0; i < Data.players.length; i++) {
-    //    //                $(".player" + Data.players[i].id).css({ "transform": "rotateZ(0deg)", "transition": "all 1s linear" });
-    //    //            }
-
-    //    //    }
-    //}
-    /*
-    // just using advanceView for now...incoporating both made for some weird transitsions.
-    $scope.reverseView = function () {
-        if ($(".column-container").css("transform")[9] === "1") {
-            $(".column-container").css("transform", "matrix3d(0,0.766044,0.642788,0,-1,0,0,0,0,-0.642788,0.766044,0,0,0,0,1)");
-            //$(".column-container").css("transform", "rotateX(40deg) rotate(90deg)");
-            $(".column-container").css("box-shadow", "10px -10px 14px 8px rgba(0,0,0,0.7)");
-            // alter player piece view to look more upright
-            for (var i = 0; i < Data.players.length; i++) {
-                $(".player" + Data.players[i].id).css({ "transform": "rotateZ(-90deg)", "transition": "all 1s linear" });
-            }
-        } else if ($(".column-container").css("transform")[9] === "-") {
-            //$(".column-container").css("transform", "rotateX(40deg) rotate(270deg)");
-            $(".column-container").css("transform", "matrix3d(0,-0.766044,-0.642788,0,1,0,0,0,0,-0.642788,0.766044,0,0,0,0,1)");
-            $(".column-container").css("box-shadow", "-10px 10px 14px 8px rgba(0,0,0,0.7)");
-            for (var i = 0; i < Data.players.length; i++) {
-                $(".player" + Data.players[i].id).css({ "transform": "rotateZ(90deg)", "transition": "all 1s linear" });
-            }
-        } else if ($(".column-container").css("transform")[9] === "0") {
-            if ($(".column-container").css("transform")[12] === "-") {
-                //$(".column-container").css("transform", "rotateX(40deg) rotate(180deg)");
-                $(".column-container").css("transform", "matrix3d(1,0,0,0,0,0.766044,0.642788,0,0,-0.642788,0.766044,0,0,0,0,1)");
-                $(".column-container").css("box-shadow", "10px 10px 14px 8px rgba(0,0,0,0.7)");
-                // alter player piece view to look more upright
-                for (var i = 0; i < Data.players.length; i++) {
-                    $(".player" + Data.players[i].id).css({ "transform": "rotateZ(0deg)", "transition": "all 1s linear" });
-                }
-            } else {
-                // need next line to reset degrees otherwise next -90 will spin out of control
-                $(".column-container").css("transform", "matrix3d(-1,0,0,0,0,-0.766044,-0.642788,0,0,-0.642788,0.766044,0,0,0,0,1)");
-                //$(".column-container").css("transform", "rotateX(40deg) rotate(180deg)");
-                $(".column-container").css("box-shadow", "-10px -10px 14px 8px rgba(0,0,0,0.7)");
-                // alter player piece view to look more upright
-                for (var i = 0; i < Data.players.length; i++) {
-                    $(".player" + Data.players[i].id).css({ "transform": "rotateZ(180deg)", "transition": "all 1s linear" });
-                }
-            }
-        }
+    $scope.reverseView = function(){
+        advanceView(board);
     }
-    */
 
     // SETUP TURN
     //$scope.isInMarket = Data.Factory_Games.inMarket($scope.currentPlayer);
