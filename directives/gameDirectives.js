@@ -8,7 +8,7 @@ portlandiaMonopoly.directive('showCards', function () {
 });
 portlandiaMonopoly.directive('readCard', function () {
     return {
-        template: ('<div><h3>{{cardToRead.text}}</h3><h4 style="color:darkgray">{{cardToRead.subtext}}</h4>')
+        template: ('<div><h3>{{cardToRead.text}}</h3><h4 style="color:#222">{{cardToRead.subtext}}</h4>')
     };
 });
 

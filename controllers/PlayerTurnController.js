@@ -146,7 +146,6 @@ portlandiaMonopoly.controller('PlayerTurnCtrl', function PlayerTurnCtrl($scope, 
         }
     }
     advanceView = function (pos) {
-        var $board = $(".column-container");
         if (pos.currentPos === 0) { // matrix3d(1, 0, .... IE, Chrome, Firefox board is at 0 deg rotation
             rotateNeg90(pos);
         } else if (pos.currentPos === 1) {
@@ -157,7 +156,6 @@ portlandiaMonopoly.controller('PlayerTurnCtrl', function PlayerTurnCtrl($scope, 
             rotateZero(pos);
         }
     }
-    
     reverseView = function (pos) {
         if (pos.currentPos === 0) { // matrix3d(1, 0, .... IE, Chrome, Firefox board is at 0 deg rotation
             rotateNeg270(pos);
@@ -172,8 +170,8 @@ portlandiaMonopoly.controller('PlayerTurnCtrl', function PlayerTurnCtrl($scope, 
     $scope.advanceView = function () {
         advanceView(board);
     }
-    $scope.reverseView = function(){
-        advanceView(board);
+    $scope.reverseView = function () {
+        reverseView(board);
     }
 
     // SETUP TURN
