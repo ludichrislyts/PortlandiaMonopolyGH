@@ -427,7 +427,7 @@ portlandiaMonopoly.controller('PlayerTurnCtrl', function PlayerTurnCtrl($scope, 
     var drawCard = function (kind) {
         var card;
         //var card_number = 4;
-        var card_number = chance.integer({ min: 0, max: 10 }); //comment out for test
+        var card_number = chance.integer({ min: 0, max: 9 }); //comment out for test
         if (kind == "community chest") {
             card = community_chest_cards[card_number];
             $scope.cardToRead = card;
