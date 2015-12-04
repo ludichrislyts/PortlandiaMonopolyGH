@@ -559,14 +559,14 @@ portlandiaMonopoly.controller('PlayerTurnCtrl', function PlayerTurnCtrl($scope, 
 
             if (player.position < 10) {
                 //account for rail spacing issue, need to target id and class separately
-                $(".square" + player.position + " #bottom-middle-cost").css("background-color", player.piece.pieceName);
-                $(".square" + player.position + " .bottom-cost").css("background-color", player.piece.pieceName);
+                $(".square" + player.position + " #bottom-middle-cost").css("background-color", player.piece.rgb);
+                $(".square" + player.position + " .bottom-cost").css("background-color", player.piece.rgb);
             } else if ((player.position < 20) && (player.position > 10)) {
-                $(".square" + player.position + " .left-cost").css("background-color", player.piece.pieceName);
+                $(".square" + player.position + " .left-cost").css("background-color", player.piece.rgb);
             } else if ((player.position < 30) && (player.position > 20)) {
                 $(".square" + player.position + " .top-cost").css("background-color", player.piece.pieceName);
             } else if ((player.position < 40) && (player.position > 20)) {
-                $(".square" + player.position + " .right-cost").css("background-color", player.piece.pieceName);
+                $(".square" + player.position + " .right-cost").css("background-color", player.piece.rgb);
             }
         }
     } //end buyDeed()
