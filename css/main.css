@@ -122,7 +122,7 @@ body {
 }
 
 .background {
-    background-image: url('/img/table.jpg');
+    background-image: url('../img/table.jpg');
     background-size: auto;
 }
 
