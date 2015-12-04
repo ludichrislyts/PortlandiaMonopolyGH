@@ -984,11 +984,11 @@ player action section (playerTurn
 .player-control {
     font-family: "Sigmar One", "Lucida Sans", sans-serif;
     color: #4d2d2d;
-    background-color: #555;
+    background-color: #eda;
     background-size: cover;
     min-height: 30em;
     max-width: 22em;
-    border: 7px outset #444;
+    border: 7px outset #feb;
     margin-left: 3em;
     margin-right: 5em;
     margin-top: .5em;
