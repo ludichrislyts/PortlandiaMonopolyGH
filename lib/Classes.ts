@@ -34,10 +34,12 @@ class GamePiece {
 
     public id: number
     public pieceName: string
+    public rgb: any
+    public rgbDark: any
     public pieceObject: GameObject
     public taken: boolean = false
 
-    constructor(id: number, pieceName: string) {
+    constructor(id: number, pieceName: string, rgb: any, rgbDark: any) {
         this.id = id;
         this.pieceName = pieceName;
     }

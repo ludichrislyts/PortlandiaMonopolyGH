@@ -81,7 +81,7 @@ body {
     -webkit-box-shadow: 12px 6px 20px 0px rgba(0,0,0,0.86);
     -moz-box-shadow: 12px 6px 20px 0px rgba(0,0,0,0.86);
     box-shadow: 12px 6px 20px 0px rgba(0,0,0,0.86);
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
     .statbar p {
@@ -168,7 +168,7 @@ body {
     flex-direction: column;
     height: 78.0em;
     width: 78.0em;
-    background-color: #ecfcf4;
+    background-color: #ddd;
     outline: .3em solid black;
     transform: rotateX(40deg);
     box-shadow: 10px 10px 10px 10px #000;
@@ -470,52 +470,52 @@ body {
 .color1 {
     height: 2.7em;
     border-bottom: 1px solid black;
-    background-color: #803399;
+    background-color: #664361;
 }
 
 .color2 {
     height: 2.7em;
     width: 100%;
     border-bottom: 1px solid black;
-    background-color: #80CCFF;
+    background-color: #9FBCC0;
 }
 
 .color3 {
     width: 2.7em;
     border-left: 1px solid black;
-    background-color: #FF00FF;
+    background-color: #DE5855;
     flex: 1;
 }
 
 .color4 {
     width: 2.7em;
     border-left: 1px solid black;
-    background-color: #FF8000;
+    background-color: #FB7116;
 }
 
 .color5 {
     height: 2.7em;
     border-top: 1px solid black;
-    background-color: #FF0000;
+    background-color: #6D0F03;
 }
 
 .color6 {
     height: 2.7em;
     border-top: 1px solid black;
-    background-color: #FFFF00;
+    background-color: #FAB900;
 }
 
 .color7 {
     width: 2.7em;
     border-right: 1px solid black;
-    background-color: #338033;
+    background-color: #5F6C4E;
     flex: 1;
 }
 
 .color8 {
     width: 2.7em;
     border-right: 1px solid black;
-    background-color: #2020CC;
+    background-color: #547098;
     flex: 1;
 }
 

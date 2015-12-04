@@ -53,20 +53,20 @@ portlandiaMonopoly.controller('PlayerTurnCtrl', function PlayerTurnCtrl($scope, 
     }
     var setColors = function () {
         if (player1) {
-            $("#p" + player1.id).css("background-color", player1.piece.pieceName.toLowerCase());
-            $("#p" + player1.id + " p.money").css("background-color", "dark" + player1.piece.pieceName.toLowerCase());
+            $("#p" + player1.id).css("background-color", player1.piece.rgb);
+            $("#p" + player1.id + " p.money").css("background-color", player1.piece.rgbDark);
         }
         if (player2) {
-            $("#p" + player2.id).css("background-color", player2.piece.pieceName.toLowerCase());
-            $("#p" + player2.id + " p.money").css("background-color", "dark" + player2.piece.pieceName.toLowerCase());
+            $("#p" + player2.id).css("background-color", player2.piece.rgb);
+            $("#p" + player2.id + " p.money").css("background-color", player2.piece.rgbDark);
         }
         if (player3) {
-            $("#p" + player3.id).css("background-color", player3.piece.pieceName.toLowerCase());
-            $("#p" + player3.id + " p.money").css("background-color", "dark" + player3.piece.pieceName.toLowerCase());
+            $("#p" + player3.id).css("background-color", player3.piece.rgb);
+            $("#p" + player3.id + " p.money").css("background-color", player3.piece.rgbDark);
         }
         if (player4) {
-            $("#p" + player4.id).css("background-color", player4.piece.pieceName.toLowerCase());
-            $("#p" + player4.id + " p.money").css("background-color", "dark" + player4.piece.pieceName.toLowerCase());
+            $("#p" + player4.id).css("background-color", player4.piece.rgb);
+            $("#p" + player4.id + " p.money").css("background-color", player4.piece.rgbDark);
         }
         $("#p" + $scope.currentPlayer.id).css("height", "12.5em");
     }
@@ -215,7 +215,7 @@ portlandiaMonopoly.controller('PlayerTurnCtrl', function PlayerTurnCtrl($scope, 
         }
         $("." + player.pieceObject.boardId).appendTo(".square" + player.position);
         $("." + player.pieceObject.boardId).css("position", "absolute");
-        $(".square" + player.position).css("outline-color", player.piece.pieceName);
+        $(".square" + player.position).css("outline-color", player.piece.rgb);
         $(".square" + player.position).toggleClass("showPosition");
         if (rotateBoard) {
             rotateToPlayer(player.position, total);
