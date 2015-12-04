@@ -277,6 +277,15 @@ portlandiaMonopoly.controller('PlayerTurnCtrl', function PlayerTurnCtrl($scope, 
         move(player, roll.total);
         if(player.position === 2 || player.position === 17 || player.position === 7 || player.position === 22){
             player.position++;
+            $("." + player.pieceObject.boardId).appendTo(".square" + player.position);
+            $("." + player.pieceObject.boardId).css("position", "absolute");
+            $(".square" + player.position).css("outline-color", player.piece.rgb);
+            $(".square" + player.position).toggleClass("showPosition");
+            if (rotateBoard) {
+                rotateToPlayer(player.position, total);
+            } else {
+                rotateBoard = true;
+            }
         }
         var deed = deeds[player.position];
         if (deed.group_id == 0) { // player is not able to buy this deed
