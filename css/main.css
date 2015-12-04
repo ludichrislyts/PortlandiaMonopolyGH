@@ -450,7 +450,7 @@ body {
     .square38 .img {
         flex: 1;
         transform: rotate(270deg);
-        background-image: url(../img/donut2.jpg);
+        background-image: url(../img/donut2.png);
         background-size: cover;
         position: absolute;
         height: 5em;
