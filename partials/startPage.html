@@ -1,4 +1,9 @@
-﻿<div class="container fade-screen" style="background-color: black">
+﻿<script>
+    if($("#zoom").attr("width") === "10%"){
+        $("#zoom").toggleClass("wobble");
+    }
+</script>
+<div class="container fade-screen" style="background-color: black">
     
     <a ui-sref="click_to_start">
         <div class="row" id="play-div">
@@ -6,7 +11,7 @@
         </div>
 
         <div class="row" id="monopoly">
-            <span id="zoom"><img src="img/bird.png" /></span>
+            <span id="zoom" class="infinite"><img src="img/bird.png" /></span>
             <img src="img/MonopolyLogo.png" id="start-logo" />
         </div>
     </a>
