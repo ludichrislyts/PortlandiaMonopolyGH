@@ -1,7 +1,7 @@
 ﻿<script>
-    if($("#zoom").attr("width") === "10%"){
-        $("#zoom").toggleClass("wobble");
-    }
+    $(".zoom").on("hover", function(){
+        this.toggleClass("wobble");
+    });
 </script>
 <div class="container fade-screen" style="background-color: black">
     
@@ -11,7 +11,7 @@
         </div>
 
         <div class="row" id="monopoly">
-            <span id="zoom" class="infinite"><img src="img/bird.png" /></span>
+            <span id="zoom" class="infinite"><img src="img/bird.png" class="zoom infinite"/></span>
             <img src="img/MonopolyLogo.png" id="start-logo" />
         </div>
     </a>
